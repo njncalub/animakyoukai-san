@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Ani-Ma Kyoukai' %}{% endblock %}
+
+{% load admin_static %}
+{% block branding %}
+<h1 id="site-name"><img src="{% static 'admin/img/amk-white.png' %}" style="max-height: 20px;"> {% trans 'Ani-Ma Kyoukai' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
