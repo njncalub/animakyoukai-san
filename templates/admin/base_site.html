@@ -5,7 +5,7 @@
 
 {% load admin_static %}
 {% block branding %}
-<h1 id="site-name"><img src="{% static 'admin/img/amk-white.png' %}" style="max-height: 20px;"> {% trans 'Ani-Ma Kyoukai' %}</h1>
+<h1 id="site-name"><a href="/" title="{% trans 'Ani-Ma Kyoukai' %}" style="text-decoration: none;"><img src="{% static 'admin/img/amk-white.png' %}" style="max-height: 20px;"> {% trans 'Ani-Ma Kyoukai' %}</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
