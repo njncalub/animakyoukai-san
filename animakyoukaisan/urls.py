@@ -8,5 +8,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^$', lambda x: HttpResponseRedirect('/admin/')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

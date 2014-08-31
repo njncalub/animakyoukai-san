@@ -6,6 +6,8 @@ from django.utils.timezone import utc
 
 from profiling.models import Person
 
+from tinymce.models import HTMLField
+
 optional = {
     'blank': True,
     'null': True,
@@ -14,8 +16,10 @@ optional = {
 class Meeting(models.Model):
     name = models.CharField(max_length=200)
     meeting_date = models.DateField('date', **optional)
+    location = models.CharField(max_length=200, **optional)
     description = models.CharField(max_length=200, **optional)
-    minutes = models.TextField(max_length=2000, **optional)
+    # minutes = models.TextField(max_length=2000, **optional)
+    minutes = HTMLField(**optional)
 
     people = models.ManyToManyField(Person, **optional)
 

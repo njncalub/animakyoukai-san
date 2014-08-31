@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     # third party apps
     'south',
     'annoying',
+    'tinymce',
     # local apps
     'profiling',
     'activities',
