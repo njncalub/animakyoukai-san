@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'annoying',
     # local apps
     'profiling',
+    'activities',
 )
 
 MIDDLEWARE_CLASSES = (
