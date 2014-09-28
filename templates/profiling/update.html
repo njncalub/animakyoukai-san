@@ -1,0 +1,134 @@
+{% extends "profiling/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "profiling/css/update.css" %}" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+{% endblock %}
+{% block bodyclass %}update{% endblock %}
+{% block content_title %}{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+{% if person_form.errors and not person_form.non_field_errors and not person_form.this_is_the_login_person_form.errors %}
+<p class="errornote">
+{% if person_form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+</p>
+{% endif %}
+
+{% if person_form.non_field_errors or person_form.this_is_the_login_person_form.errors %}
+{% for error in person_form.non_field_errors|add:person_form.this_is_the_login_person_form.errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+
+{% if errors %}
+    {% for error in errors %}
+    <p class="errornote">
+        {{ error }}
+    </p>
+    {% endfor %}
+{% endif %}
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $( "#id_birth_date" ).datepicker({ dateFormat: 'yy-mm-dd',
+                                           changeMonth: true,
+                                           changeYear: true,
+                                           showMonthAfterYear: true,
+                                           buttonImageOnly: true,
+                                           yearRange: 'c-50:c+0',
+                                           // maxDate: '-10y'
+                                       });
+    });
+</script>
+
+<div id="content-main">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+            {{ person_form.avatar.errors }}
+            {{ person_form.avatar.label_tag }}
+            {{ person_form.avatar }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.last_name.errors }}
+            {{ person_form.last_name.label_tag }}
+            {{ person_form.last_name }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.first_name.errors }}
+            {{ person_form.first_name.label_tag }}
+            {{ person_form.first_name }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.middle_name.errors }}
+            {{ person_form.middle_name.label_tag }}
+            {{ person_form.middle_name }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.nick_name.errors }}
+            {{ person_form.nick_name.label_tag }}
+            {{ person_form.nick_name }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.sex.errors }}
+            {{ person_form.sex.label_tag }}
+            {{ person_form.sex }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.birth_date.errors }}
+            {{ person_form.birth_date.label_tag }}
+            {{ person_form.birth_date }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.address.errors }}
+            {{ person_form.address.label_tag }}
+            {{ person_form.address }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.mobile_number.errors }}
+            {{ person_form.mobile_number.label_tag }}
+            {{ person_form.mobile_number }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.landline_number.errors }}
+            {{ person_form.landline_number.label_tag }}
+            {{ person_form.landline_number }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.email_address.errors }}
+            {{ person_form.email_address.label_tag }}
+            {{ person_form.email_address }}
+        </div>
+
+        <div class="form-row">
+            {{ person_form.website_address.errors }}
+            {{ person_form.website_address.label_tag }}
+            {{ person_form.website_address }}
+        </div>
+
+        <div class="submit-row">
+            <button type="submit">{% trans 'Update' %}</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

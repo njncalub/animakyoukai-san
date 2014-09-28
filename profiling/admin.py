@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from profiling.models import Person
+from profiling.forms import UserAdminAuthenticationForm
 
 class PersonAdmin(admin.ModelAdmin):
     model = Person

@@ -1,0 +1,17 @@
+#user-tools {
+    visibility: hidden;
+}
+
+.form-row input {
+    clear: both;
+    padding: 6px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.submit-row {
+    clear: both;
+    padding: 1em 0 0 0;
+}
