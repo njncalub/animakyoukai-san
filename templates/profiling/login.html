@@ -59,7 +59,8 @@
   <div class="submit-row">
   <!-- <div> -->
     <button type="submit">{% trans 'Log in' %}</button>
-    <a href="{% url 'registration_page' %}" target="_parent"><button type="button">{% trans 'Register' %}</button></a>
+    <a href="{% url 'reset_password_page' %}" target="_parent"><button type="button">{% trans 'Forgot password' %}</button></a>
+    <a href="{% url 'registration_page' %}" target="_parent" style="float: right;"><button type="button">{% trans 'Register' %}</button></a>
   </div>
 </form>
 
